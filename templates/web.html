@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowledge Base Q&A System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 50px;
+            background-image: url("{{ url_for('static', filename='bg.jpg') }}"); /* Replace 'background.jpg' with the path to your image */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            color: #100f0f;
+            font-size: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        input[type="text"] {
+            width: 80%;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            padding: 10px 30px;
+            margin: 10px 0;
+        }
+        .answer {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #d4d3d3;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Knowledge Base Q&A System</h1>
+        <form method="POST">
+            <input type="text" name="question" placeholder="Ask a question..." required>
+            <input type="submit" value="Get Answer">
+        </form>
+        {% if answer %}
+        <div class="answer">
+            <h2>Question:</h2>
+            <p>{{ question }}</p>
+            <h2>Answer:</h2>
+            <p>{{ answer }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
